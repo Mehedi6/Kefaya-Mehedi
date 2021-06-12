@@ -1,0 +1,28 @@
+i=0
+cc=0
+uc=0
+def play():
+    global uc
+    global i
+    global cc
+    user=input("Your Turn: if you want to choose rock then press 'r', if you want to choose paper then press 'p', if your want to choose scissors then press 's'\n")
+    pc=['s','r','p']
+    if user==pc[i]:
+        print("Your pick was "+user+" computer's pick was "+pc[i]+" So This round is tie")
+    elif (user=='r'and pc[i]=='s') or (user=='p' and pc[i]=='r') or (user=='s' and pc[i]=='p'):
+        uc+=1
+        print("Your pick was "+user+" computer's pick was "+pc[i]+" So you won the round")
+    else:
+        cc+=1
+        print("Your pick was "+user+" computer's pick was "+pc[i]+" So you lose the round")
+    i=(i+1)%len(pc)
+    won()
+def won():
+    global uc
+    if uc==5:
+        print("Congratulations, you won the game!")
+    elif cc==5:
+        print("sorry! yoy lose the game")
+    else:
+        play()
+won()
